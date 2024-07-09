@@ -16,7 +16,7 @@ export function main(){
 
     while(true){
         console.log(colors.reset)
-        console.log(colors.fg.blue)
+        console.log(colors.fg.bluestrong)
         console.log("**********************************************************");
         console.log("                                                          ");
         console.log("                       NEXT FARMA                         ");
@@ -167,7 +167,7 @@ export function sobre(): void{
 }
 
 function keyPress(): void{
-    console.log(colors.fg.whitestrong)
+    console.log(colors.fg.bluestrong)
     console.log("\nPressione enter para continuar...");
     readlinesync.prompt();
 

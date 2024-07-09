@@ -2,6 +2,7 @@
 //Classe para dar corpo aos métodos adquiridos da interface
 import { Produto } from "../model/Produto";
 import { ProdutoRepository } from "../repository/ProdutoRepository";
+import { colors } from "../util/Colors";
 
 export class ProdutoController implements ProdutoRepository{
 
@@ -13,7 +14,10 @@ export class ProdutoController implements ProdutoRepository{
 
     cadastrarProduto(produto: Produto): void { // Recebe um Objeto Produto
         this.listaProdutos.push(produto); //Adiciona esse objeto no array
+        console.log(colors.fg.greenstrong)
+
         console.log("\nProduto Cadastrado com Sucesso!")
+        console.log(colors.reset)
     }
 
     listarProdutos(): void {
@@ -30,7 +34,9 @@ export class ProdutoController implements ProdutoRepository{
             buscaProduto.visualizar() // Usa o método visualizar da super desse único produto buscado pelo ID
 
         }else{
+            console.log(colors.fg.redstrong)
             console.log("\n Produto não encontrado!")
+            console.log(colors.reset)
         }
     }
 
@@ -40,9 +46,15 @@ export class ProdutoController implements ProdutoRepository{
         if(buscaProduto != null){
             this.listaProdutos[this.listaProdutos.indexOf(buscaProduto)] = produto; //Procura o índice do Objeto produto encontrado no Array listaProdutos(dados atuais).Depois  atribui o Objeto produto, que foi recebido no parâmetro do Método atualizar(produto), substituindo os dados atuais pelos novos dados recebidos via teclado.
 
+            console.log(colors.fg.greenstrong)
             console.log("\nO produto foi atualizado com sucesso!")
+            console.log(colors.reset)
+
         } else{
+            console.log(colors.fg.redstrong)
             console.log("\n O produto não foi encontrado")
+            console.log(colors.reset)
+
         }
     }
 
@@ -53,9 +65,13 @@ export class ProdutoController implements ProdutoRepository{
     // Se o produto for encontrado, remove do array
         if (index !== -1) { 
             this.listaProdutos.splice(index, 1);
+            console.log(colors.fg.greenstrong)
             console.log(`\nProduto deletado com sucesso!`);
+            console.log(colors.reset)
         } else {
+            console.log(colors.fg.redstrong)
             console.log(`\nProduto não encontrado!`);
+            console.log(colors.reset)
         }
     }
 
